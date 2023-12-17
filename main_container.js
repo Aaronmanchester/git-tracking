@@ -22,3 +22,16 @@
   console.log("build failure info", JSON.stringify(build.failureInfo))
   webhook.send(message);
         }
+
+
+//symbol searcher
+const createSlackMessage = (build) => {
+  var embeds = []
+  let message = {
+    username: build.substitutions.TRIGGER_NAME,
+    text: generateMessageText(build),
+    attachments: [{
+      title: "Build steps",
+      fields: []
+    }]
+  }}
